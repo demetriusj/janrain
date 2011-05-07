@@ -1,0 +1,13 @@
+{
+	"name" : "janrain",
+	"description" : "janrain API",
+	"keywords" : ["janrain", "api", "wrapper", "RPX"],
+	"version" : "0.0.1",
+	"author" : "Demetrius Johnson - https://github.com/demetriusj",
+	"repository" : {
+		"type" : "git",
+	    "url" : "http://github.com/demetriusj/janrain.git"
+	},
+	"main": "./lib/janrain.js",
+	"engines": { "node": ">= 0.4.0" }
+}
