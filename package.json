@@ -1,6 +1,6 @@
 {
 	"name" : "janrain",
-	"description" : "janrain API",
+	"description" : "Janrain Engage API",
 	"keywords" : ["janrain", "api", "wrapper", "RPX"],
 	"version" : "0.0.1",
 	"author" : "Demetrius Johnson - https://github.com/demetriusj",
