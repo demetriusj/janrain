@@ -1,0 +1,26 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Janrain</title>
+  <meta name="description" content="Janrain API">
+  <meta name="author" content="Demetrius Johnson">
+
+	<!-- Janrain Sign-in widget code: Get your code from your janrain account. -->
+	<script type="text/javascript">
+	  var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
+	  document.write(unescape("%3Cscript src='" + rpxJsHost + "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	  RPXNOW.overlay = true;
+	  RPXNOW.language_preference = 'en';
+	</script>
+</head>
+<body>
+
+	<!-- Janrain Sign-in widget code: Get your code from your janrain account. -->
+	<a class="rpxnow" onclick="return false;" href="https://<%= locals.domain %>.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2F<%= locals.host %>%2Frpx"> Sign In </a>
+</body>
+</html>
+
