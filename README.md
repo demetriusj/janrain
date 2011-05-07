@@ -7,4 +7,4 @@ v0.0.1
 License
 -----------
 
-See [LICENSE]
+See [LICENSE](https://github.com/demetriusj/janrain/blob/master/LICENSE)
