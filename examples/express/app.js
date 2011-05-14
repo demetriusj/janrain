@@ -45,7 +45,6 @@ app.get('/', function(req, res){
  * After the user sign-in/connects janrain widget will reload the
  * page and post details about the newly authicated user.
  * 
- * this only works for PRO accounts
  */
 app.post('/rpx', connect.bodyDecoder(), function(req, res){
 

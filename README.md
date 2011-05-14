@@ -90,8 +90,16 @@ janrain.js is a simple wrapper around the Janrain Engage API. For details on all
 
 ## TODO
 * Write Tests.
-* Build better documcations.
+* Build better documentation.
 * Make the examples 
+
+## For additional Information
+
+Check out Janrain documentation at [Janrain](https://rpxnow.com/docs)
+Janrain Getting started Google group [Janrain Developers](http://groups.google.com/group/rpx-developers?pli=1)
+Janrain on github [Github](https://github.com/janrain)
+
+My blog [demetriusj](http://demetriusj.com/tagged/janrain)
 
 Authors
 -------
