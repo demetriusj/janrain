@@ -3,15 +3,11 @@
 A Node.js module for interfacing with Janrain Engage API.
 
 Janrain is a leader in the social login/registration and sharing space. Their are one of the most inexpensive solutions to provide a turnkey social login and social sharing solution for your site.
-They bridge the gap between your website and the social networks. Janrain makes it easy for your users to login with an existing identity profile from social networks or identity providers like Facebook, Twitter, Google and Yahoo, to speed up online registration. Users can then interact with friends and publish activity data back through their social networks. Finaly you can also collect their details.
+They bridge the gap between your website and the social networks. Janrain makes it easy for your users to login with an existing identity profile from social networks or identity providers like Facebook, Twitter, Google and Yahoo, to speed up online registration. Users can then interact with friends and publish activity data back through their social networks. Finally you can also collect their details.
 
 v0.0.1
 
-### DISCLAIMER
-
 ## Installation
-
-Janrain examples depends on [express](http://github.com/visionmedia/express) but the library does not.
 
 To install via npm
 
@@ -21,11 +17,11 @@ To install by hand, download the module and create a symlink in `~/.node_librari
 
     $ ln -s /path/to/janrain/ ~/.node_libraries/janrain
 
-Or
+or
 
     Copy the /lib/janrain.js file to your project it is the only file required.
 
-## Getting Ready
+## Setup Janrain Account
 
 To enable social login and registration you need to have a free, pro, or enterprise account with janrain and setup your providers i.e. Facebook, Twitter, etc. Next you need to provide a callback endpoint that Janrain can POST back to. Once Janrain POST to your site you can use the Janrain API to validate the credentials and request a normalized version of their profile, contact list, etc.
 
@@ -38,6 +34,24 @@ Great you are almost done. You should be at your dashboard and if not go to your
 Now that you have picked your providers and configured them click on the wizard step labeled "Handle Tokens" copy the "apiKey" value this is your api key and SHOULD be kept secret. You can also get this value on your main dashboard page. Optionaly If you want you can click on "Test Tool" on the right-hand side under "Resources" to validate that your configuration works. It will let you simulate signing using your configuration and display that information returned by the providers.
 
 There is optional one last step before we get into code go to your dashboard and click on "Settings" under the "Quick Links" on the right-hand side. If you plan to use janrain on a domain other than localhost you will need to add that domain to the "Token URL Domains". There are also many different settings like "Provider Configuration" on the dashboard page. I would recommend exploring them later after you get your code up and running.
+
+## Demo
+
+		var
+			janrain = require('janrain'),
+			util = require('util'),
+			engageAPI = janrain('{API_KEY}'); // API_KEY is the "API Key (Secret)" in your janrain dashboard
+
+		var identifier = 'http://www.facebook.com/profile.php?id={XXXXXX}';
+
+		engageAPI.getContacts(identifier, function(err, data) {
+		  if(err) {
+		    console.log('ERROR: ' + err.message);
+		    return;
+		  }
+
+		  console.log(util.inspect(data, false, 6));
+		});
 
 ## Usage
 
