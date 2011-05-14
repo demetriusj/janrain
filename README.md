@@ -2,10 +2,10 @@
 
 A Node.js module for interfacing with Janrain Engage API.
 
+# What is Janrain?
+
 Janrain is a leader in the social login/registration and sharing space. Their are one of the most inexpensive solutions to provide a turnkey social login and social sharing solution for your site.
 They bridge the gap between your website and the social networks. Janrain makes it easy for your users to login with an existing identity profile from social networks or identity providers like Facebook, Twitter, Google and Yahoo, to speed up online registration. Users can then interact with friends and publish activity data back through their social networks. Finally you can also collect their details.
-
-v0.0.1
 
 ## Installation
 
@@ -21,7 +21,7 @@ or
 
     Copy the /lib/janrain.js file to your project it is the only file required.
 
-## Setup Janrain Account
+## Setup your Janrain account
 
 To enable social login and registration you need to have a free, pro, or enterprise account with janrain and setup your providers i.e. Facebook, Twitter, etc. Next you need to provide a callback endpoint that Janrain can POST back to. Once Janrain POST to your site you can use the Janrain API to validate the credentials and request a normalized version of their profile, contact list, etc.
 
@@ -36,6 +36,27 @@ Now that you have picked your providers and configured them click on the wizard 
 There is optional one last step before we get into code go to your dashboard and click on "Settings" under the "Quick Links" on the right-hand side. If you plan to use janrain on a domain other than localhost you will need to add that domain to the "Token URL Domains". There are also many different settings like "Provider Configuration" on the dashboard page. I would recommend exploring them later after you get your code up and running.
 
 ## Demo
+
+Validate and login a user using Janrain. The social login/registration widget will post back to your site at which point you can make the auth call to validate the request on a back-channel and get the users details.
+
+		var
+			janrain = require('janrain'),
+			engageAPI = janrain('{API_KEY}'); // API_KEY is the "API Key (Secret)" in your janrain dashboard
+
+		var token = '{token_from_post}';
+
+		engageAPI.authInfo(token, true, function(err, data) {
+		  if(err) {
+		    console.log('ERROR: ' + err.message);
+		    return;
+		  }
+
+			// login the user to your site
+			// the data contains profile, friends, provider, etc.
+			// read the API docs for details.
+		});
+
+Get a users contact list in the portable [contact format](http://portablecontacts.net/). This will only work on Pro and Enterprise accounts only. 
 
 		var
 			janrain = require('janrain'),
@@ -53,10 +74,19 @@ There is optional one last step before we get into code go to your dashboard and
 		  console.log(util.inspect(data, false, 6));
 		});
 
-## Usage
+## API
 
+janrain.js is a simple wrapper around the Janrain Engage API. For details on all the options, errors, return values please read the documentation at [Janrain](https://rpxnow.com/docs). As a convention all methods are camelcase and do not map directly to Janrain REST API but the naming convention is to remove the underscore and replace it with the camelcase equlivent i.e auth_info in Janrain documentation is authInfo. 
 
+* [authInfo](https://rpxnow.com/docs#api_auth_info)
+* [getContacts](https://rpxnow.com/docs#api_get_contacts)
+* [setStatus](https://rpxnow.com/docs#api_set_status)
+* [map](https://rpxnow.com/docs#api_map)
+* [unmap](https://rpxnow.com/docs#api_unmap)
+* [mappings](https://rpxnow.com/docs#api_mappings)
+* [activity](https://rpxnow.com/docs#api_activity)
 
+#### [Errors](https://rpxnow.com/docs#api_error_responses)
 
 ## TODO
 * Write Tests.
