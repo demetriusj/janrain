@@ -43,6 +43,10 @@ Validate and login a user using Janrain. The social login/registration widget wi
 			janrain = require('janrain'),
 			engageAPI = janrain('{API_KEY}'); // API_KEY is the "API Key (Secret)" in your janrain dashboard
 
+		/* token passed back by Janrain. Janrain widget will post to your side after your user clicks on
+     * login and this token needs to be validated so Janrain can pass you the user credentials on a
+		 * secure back channel i.e. API call.
+		 */
 		var token = '{token_from_post}';
 
 		engageAPI.authInfo(token, true, function(err, data) {
