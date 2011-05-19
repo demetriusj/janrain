@@ -11,11 +11,11 @@ They bridge the gap between your website and the social networks. Janrain makes 
 
 To install via npm
 
-    npm install janrain
+    npm install janrain-api
 
 To install by hand, download the module and create a symlink in `~/.node_libraries`
 
-    $ ln -s /path/to/janrain/ ~/.node_libraries/janrain
+    $ ln -s /path/to/janrain-api/ ~/.node_libraries/janrain
 
 or
 
@@ -40,7 +40,7 @@ There is optional one last step before we get into code go to your dashboard and
 Validate and login a user using Janrain. The social login/registration widget will post back to your site at which point you can make the auth call to validate the request on a back-channel and get the users details.
 
 		var
-			janrain = require('janrain'),
+			janrain = require('janrain-api'),
 			engageAPI = janrain('{API_KEY}'); // API_KEY is the "API Key (Secret)" in your janrain dashboard
 
 		/* token passed back by Janrain. Janrain widget will post to your side after your user clicks on
@@ -63,7 +63,7 @@ Validate and login a user using Janrain. The social login/registration widget wi
 Get a users contact list in the portable [contact format](http://portablecontacts.net/). This will only work on Pro and Enterprise accounts only. 
 
 		var
-			janrain = require('janrain'),
+			janrain = require('janrain-api'),
 			util = require('util'),
 			engageAPI = janrain('{API_KEY}'); // API_KEY is the "API Key (Secret)" in your janrain dashboard
 
