@@ -1,2 +1,7 @@
 .project
 .DS_Store
+
+# Folders to ignore
+.hg
+.svn
+.idea
